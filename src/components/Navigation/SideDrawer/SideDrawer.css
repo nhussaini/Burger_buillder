@@ -23,6 +23,10 @@
 }
 
 .Close {
-    transform: translateX(-100%px);
+    transform: translateX(-100%);
 
+}
+
+.Logo {
+    height: 11%;
 }
