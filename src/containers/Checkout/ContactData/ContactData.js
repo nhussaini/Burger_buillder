@@ -49,7 +49,7 @@ class ContactData extends Component{
                 value:''
             },
             deliveryMethod: {
-                elementType: 'input',
+                elementType: 'select',
                 elementConfig: {
                     options: [
                         {value: 'fastest', displayValue: 'fastest'},
