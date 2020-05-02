@@ -31,7 +31,7 @@ class Checkout extends Component {
         this.props.history.replace('/checkout/contact-data');
     }
     render(){
-        let summary =<Redirect to="/" />
+        let summary = <Redirect to="/" />
         if (this.props.ings){
             summary =(
                 <div>
@@ -40,7 +40,6 @@ class Checkout extends Component {
                              checkoutCancelled={this.checkoutCancelledHandler}
                              checkoutContinued={this.checkoutContinuedHandler} />
                  <Route path={this.props.match.path + '/contact-data'}
-                 //         render={(props)=>(<ContactData ingredients={this.state.ingredients} price={this.state.totalPrice} {...props}/>)}
                              component={ContactData}
                  />
 
@@ -54,7 +53,7 @@ class Checkout extends Component {
 
 const mapStateToProps = state =>{
     return {
-        ings:state.ingredients
+        ings:state.burgerBuilder.ingredients
     };
 } 
 
