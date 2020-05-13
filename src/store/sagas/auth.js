@@ -9,16 +9,24 @@
 // that this step should be executed and that it will wait for it to finish. For examle, if it were 
 //a async action, it would not continue before the step is done.
 
+import { delay } from 'redux-saga/effects';
 import { put } from 'redux-saga/effects';
 
-import * as actionTypes from '../actions/actionTypes';
+
+import * as actions from '../actions/index';
 
 
 export function* logoutSaga(action) {
     yield localStorage.removeItem('token');
     yield localStorage.removeItem('expirationDate');
     yield localStorage.removeItem('userId');
-    yield put({
-        type: actionTypes.Auth_LOGOUT
-    })
+    yield put(actions.logoutSucceed());
+}
+
+export function* checkAuthTimeoutSaga(action){
+    yield delay(action.expirationTime); 
+    yield put(action.logout());
+    // setTimeout(()=>{
+    //     dispatch(logout());
+    // },expirationTime *1000);
 }
